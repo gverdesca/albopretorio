@@ -1,0 +1,12 @@
+entity AttoAmministrativo {
+	id String required maxlength(36),
+    num_determina Integer,
+	data_determina LocalDate,
+    oggetto String required maxlength(500),
+	allegato Blob
+}
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+angularSuffix * with suf
