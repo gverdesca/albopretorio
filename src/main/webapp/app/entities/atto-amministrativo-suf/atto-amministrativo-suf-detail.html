@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span>Atto Amministrativo</span> {{vm.attoAmministrativo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Numdetermina</span></dt>
+        <dd>
+            <span>{{vm.attoAmministrativo.numdetermina}}</span>
+        </dd>
+        <dt><span>Datadetermina</span></dt>
+        <dd>
+            <span>{{vm.attoAmministrativo.datadetermina | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Oggetto</span></dt>
+        <dd>
+            <span>{{vm.attoAmministrativo.oggetto}}</span>
+        </dd>
+        <dt><span>Allegato</span></dt>
+        <dd>
+            <div ng-if="vm.attoAmministrativo.allegato">
+                <a ng-click="vm.openFile(vm.attoAmministrativo.allegatoContentType, vm.attoAmministrativo.allegato)">open</a>
+                {{vm.attoAmministrativo.allegatoContentType}}, {{vm.byteSize(vm.attoAmministrativo.allegato)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="atto-amministrativo-suf-detail.edit({id:vm.attoAmministrativo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>
